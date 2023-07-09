@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"
+      integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css"
+      integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../static/css/global.css" />
+    <link rel="stylesheet" href="../static/css/orders.css" />
+    <link rel="stylesheet" href="../static/css/paid-orders-detail.css" />
+    <script src="../static/js/global.js"></script>
+    <title>Paid Orders</title>
+  </head>
+  <body>
+    <div class="ui visible sidebar inverted vertical menu">
+      <a class="item">
+        <div class="ui small image">
+          <img src="../static/asset/Raccoon.png" alt="" />
+        </div>
+      </a>
+      <a href="/home" class="item">
+        <h4><i class="home icon"></i> Home</h4>
+      </a>
+      <a href="/products" class="item">
+        <h4><i class="archive icon"></i> Products</h4>
+      </a>
+      <a href="/orders" class="active item">
+        <h4><i class="cart plus icon"></i> Orders</h4>
+      </a>
+    </div>
+    <div class="container">
+      <div class="row">
+        <h2 id="breadcumb">
+          <a href="/products">Orders</a>
+          <i class="angle right icon"></i>
+          Paid Orders
+          <i class="angle right icon"></i>
+          Details
+        </h2>
+      </div>
+      <div class="row" id="bottom-row">
+        <div class="ui container">
+          <form
+            class="ui form"
+            action="/confirmation/{{order['order_id']}}"
+            method="POST"
+          >
+            <div class="ui stackable two column grid">
+              <div class="row">
+                <div class="ui ten wide column">
+                  <b>Orders Detail</b>
+                  <table
+                    id="table"
+                    class="ui selectable unstackable celled table"
+                  >
+                    <tbody>
+                      <tr>
+                        <td>Order ID</td>
+                        <td><b>{{order['order_id']}}</b></td>
+                      </tr>
+                      <tr>
+                        <td>Orderer</td>
+                        <td><b>{{order['username']}}</b></td>
+                      </tr>
+                      <tr>
+                        <td>Products</td>
+                        <td>
+                          {% for pro in products %}
+
+                          <b>{{pro['name']}}</b>
+                          <b id="price">IDR {{pro['price']}}</b>
+                          <br />
+
+                          {% endfor %}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Subtotal</td>
+                        <td><b>IDR {{order['subtotal']}}</b></td>
+                      </tr>
+                      <tr>
+                        <td>Date</td>
+                        <td><b>{{order['order_datetime']}}</b></td>
+                      </tr>
+                      <tr>
+                        <td>Status</td>
+                        <td><b>{{order['order_status']}}</b></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="ui six wide column">
+                  <b>Proof of payment</b>
+                  <div class="ui segment">
+                    <center>
+                      <div class="ui image">
+                        <img
+                          id="zoom"
+                          src="../{{order['verif_image']}}"
+                          alt=""
+                        />
+                      </div>
+                    </center>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="ui ten wide column">
+                  <b>Shipment receipt number</b>
+                  <div class="field">
+                    <input
+                      type="text"
+                      id="input"
+                      name="resi"
+                      placeholder="Receipt Number"
+                    />
+                  </div>
+                </div>
+                <div class="ui six wide column">
+                  <div class="field">
+                    <label for="">Status</label>
+                    <div class="ui selection dropdown">
+                      <input type="hidden" name="status" />
+                      <i class="dropdown icon"></i>
+                      <div class="default text">Confirmation</div>
+                      <div class="menu">
+                        <div class="item" data-value="On Shipment">Accept</div>
+                        <div class="item" data-value="Reject">Reject</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="ui sixteen wide column">
+                  <button class="ui animated button" type="submit">
+                    <div class="visible content">Confirm</div>
+                    <div class="hidden content">
+                      <i class="thumbs up icon"></i>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="ui basic modal">
+      <center>
+        <div class="ui large image">
+          <img id="zoom-image" src="../{{order['verif_image']}}" alt="" />
+        </div>
+      </center>
+    </div>
+  </body>
+</html>
+<script>
+  $(function () {
+    $("#zoom").click(function () {
+      $(".ui.basic.modal").modal("show");
+    });
+
+    $(".ui.dropdown").dropdown();
+  });
+</script>

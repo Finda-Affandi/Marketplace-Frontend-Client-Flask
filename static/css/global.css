@@ -1,0 +1,98 @@
+html {
+  overflow: hidden;
+}
+
+body {
+  color: #1a120b;
+}
+
+.ui.visible.sidebar.inverted.vertical.menu {
+  background-color: #1a120b;
+}
+
+.container {
+  margin-left: 240px;
+  margin-right: 30px;
+  margin-top: 20px;
+}
+
+#input:focus {
+  border-color: #edb560;
+}
+
+.ui.animated.button {
+  background-color: #edb560;
+  color: #1a120b;
+}
+
+a:link {
+  color: #1a120b;
+  background-color: transparent;
+}
+
+a:active {
+  color: #1a120b;
+  background-color: transparent;
+}
+
+a:visited {
+  color: #1a120b;
+  background-color: transparent;
+}
+
+a:hover {
+  color: #edb560;
+  background-color: transparent;
+}
+
+tr:hover {
+  cursor: pointer;
+}
+
+.check {
+  margin: 5px;
+  width: 60px;
+  background-color: #1a120b;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  overflow: hidden;
+  float: left;
+}
+
+.check label span:hover {
+  cursor: pointer;
+}
+
+.check label {
+  float: left;
+  margin-left: -26px;
+  line-height: 3em;
+  width: 8em;
+  height: 3em;
+}
+
+.check label span {
+  text-align: center;
+  padding: 3px 0;
+  display: block;
+  margin-top: -2.5%;
+}
+
+.check label input {
+  position: absolute;
+  display: none;
+  color: #fff !important;
+}
+
+.check label input + span {
+  color: #fff;
+}
+
+.check input:checked + span {
+  color: #1a120b;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+}
+
+.butt input:checked + span {
+  background-color: #edb560;
+}

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"
+      integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css"
+      integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="../static/css/global.css" />
+    <link rel="stylesheet" href="../static/css/add-product.css" />
+    <script src="../static/js/add-product.js"></script>
+    <title>Add Product</title>
+  </head>
+  <body>
+    <div class="ui visible sidebar inverted vertical menu">
+      <a class="item">
+        <div class="ui small image">
+          <img src="../static/asset/Raccoon.png" alt="" />
+        </div>
+      </a>
+      <a href="/home" class="item">
+        <h4><i class="home icon"></i> Home</h4>
+      </a>
+      <a href="/products" class="active item">
+        <h4><i class="archive icon"></i> Products</h4>
+      </a>
+      <a href="/orders" class="item">
+        <h4><i class="cart plus icon"></i> Orders</h4>
+      </a>
+    </div>
+    <div class="container">
+      <!-- Breadcumb -->
+      <div class="row">
+        <div class="sixteen wide column">
+          <h2 id="breadcumb">
+            <a href="/products">Products</a>
+            <i class="angle right icon"></i>
+            Add Product
+          </h2>
+        </div>
+      </div>
+
+      <!-- Add products form -->
+      <div class="row">
+        <div class="column">
+          <form
+            class="ui form"
+            method="POST"
+            action="/post-product"
+            enctype="multipart/form-data"
+          >
+            <div class="ui stackable two column grid">
+              <!-- Left column segment -->
+              <div class="column">
+                <div class="ui segment">
+                  <div class="field">
+                    <label>Product Name</label>
+                    <input
+                      id="input"
+                      type="text"
+                      name="name"
+                      placeholder="Product Name"
+                    />
+                  </div>
+                  <div class="field">
+                    <label>Brand</label>
+                    <input
+                      id="input"
+                      type="text"
+                      name="brand"
+                      placeholder="Brand"
+                    />
+                  </div>
+                  <div class="field">
+                    <label>Description</label>
+                    <textarea
+                      id="input"
+                      name="description"
+                      placeholder="Description"
+                    ></textarea>
+                  </div>
+                  <div class="field">
+                    <label for="currency-field">Price</label>
+                    <input
+                      type="text"
+                      name="price"
+                      id="currency"
+                      placeholder="IDR"
+                    />
+                  </div>
+                  <div class="field">
+                    <label for="">Status</label>
+                    <div class="ui selection dropdown">
+                      <input type="hidden" name="status" />
+                      <i class="dropdown icon"></i>
+                      <div class="default text">Status</div>
+                      <div class="menu">
+                        <div class="item" data-value="Publish">Publish</div>
+                        <div class="item" data-value="Draft">Draft</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right column segment -->
+              <div class="column">
+                <div class="ui segment" id="right-segment">
+                  <div class="field">
+                    <label> Size Available </label>
+
+                    <!-- Sizelist check-button -->
+                    <div class="size-list">
+                      <div class="check butt">
+                        <label>
+                          <input
+                            type="checkbox"
+                            name="size"
+                            id="35"
+                            value="35"
+                          /><span>35</span>
+                        </label>
+                      </div>
+                      <div class="check butt">
+                        <label>
+                          <input
+                            type="checkbox"
+                            name="size"
+                            id="36"
+                            value="36"
+                          /><span>36</span>
+                        </label>
+                      </div>
+                      <div class="check butt">
+                        <label>
+                          <input
+                            type="checkbox"
+                            name="size"
+                            id="37"
+                            value="37"
+                          /><span>37</span>
+                        </label>
+                      </div>
+                      <div class="check butt">
+                        <label>
+                          <input
+                            type="checkbox"
+                            name="size"
+                            id="38"
+                            value="38"
+                          /><span>38</span>
+                        </label>
+                      </div>
+                      <div class="check butt">
+                        <label>
+                          <input
+                            type="checkbox"
+                            name="size"
+                            id="39"
+                            value="39"
+                          /><span>39</span>
+                        </label>
+                      </div>
+                      <div class="check butt">
+                        <label>
+                          <input
+                            type="checkbox"
+                            name="size"
+                            id="40"
+                            value="40"
+                          /><span>40</span>
+                        </label>
+                      </div>
+                      <div class="check butt">
+                        <label>
+                          <input
+                            type="checkbox"
+                            name="size"
+                            id="41"
+                            value="41"
+                          /><span>41</span>
+                        </label>
+                      </div>
+                      <div class="check butt">
+                        <label>
+                          <input
+                            type="checkbox"
+                            name="size"
+                            id="42"
+                            value="42"
+                          /><span>42</span>
+                        </label>
+                      </div>
+                      <div class="check butt">
+                        <label>
+                          <input
+                            type="checkbox"
+                            name="size"
+                            id="43"
+                            value="43"
+                          /><span>43</span>
+                        </label>
+                      </div>
+                      <div class="check butt">
+                        <label>
+                          <input
+                            type="checkbox"
+                            name="size"
+                            id="44"
+                            value="44"
+                          /><span>44</span>
+                        </label>
+                      </div>
+                      <div class="check butt">
+                        <label>
+                          <input
+                            type="checkbox"
+                            name="size"
+                            id="45"
+                            value="45"
+                          /><span>45</span>
+                        </label>
+                      </div>
+                      <div class="check butt">
+                        <label>
+                          <input
+                            type="checkbox"
+                            name="size"
+                            id="46"
+                            value="46"
+                          /><span>46</span>
+                        </label>
+                      </div>
+                      <div class="check butt">
+                        <label>
+                          <input
+                            type="checkbox"
+                            name="size"
+                            id="47"
+                            value="47"
+                          /><span>47</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Size-stock input -->
+                  <div class="stock-list">
+                    <div class="field">
+                      <div id="size-35" class="stock-input">
+                        <div class="ui labeled input">
+                          <div class="ui label">35</div>
+                          <input
+                            id="input"
+                            type="text"
+                            name="stock"
+                            placeholder="Stock for size 35"
+                          />
+                          <input type="hidden" name="size" value="" />
+                        </div>
+                      </div>
+                      <div id="size-36" class="stock-input">
+                        <div class="ui labeled input">
+                          <div class="ui label">36</div>
+                          <input
+                            id="input"
+                            type="text"
+                            name="stock"
+                            placeholder="Stock for size 36"
+                          />
+                          <input type="hidden" name="size" value="" />
+                        </div>
+                      </div>
+                      <div id="size-37" class="stock-input">
+                        <div class="ui labeled input">
+                          <div class="ui label">37</div>
+                          <input
+                            id="input"
+                            type="text"
+                            name="stock"
+                            placeholder="Stock for size 37"
+                          />
+                          <input type="hidden" name="size" value="" />
+                        </div>
+                      </div>
+                      <div id="size-38" class="stock-input">
+                        <div class="ui labeled input">
+                          <div class="ui label">38</div>
+                          <input
+                            id="input"
+                            type="text"
+                            name="stock"
+                            placeholder="Stock for size 38"
+                          />
+                          <input type="hidden" name="size" value="" />
+                        </div>
+                      </div>
+                      <div id="size-39" class="stock-input">
+                        <div class="ui labeled input">
+                          <div class="ui label">39</div>
+                          <input
+                            id="input"
+                            type="text"
+                            name="stock"
+                            placeholder="Stock for size 39"
+                          />
+                          <input type="hidden" name="size" value="" />
+                        </div>
+                      </div>
+                      <div id="size-40" class="stock-input">
+                        <div class="ui labeled input">
+                          <div class="ui label">40</div>
+                          <input
+                            id="input"
+                            type="text"
+                            name="stock"
+                            placeholder="Stock for size 40"
+                          />
+                          <input type="hidden" name="size" value="" />
+                        </div>
+                      </div>
+                      <div id="size-41" class="stock-input">
+                        <div class="ui labeled input">
+                          <div class="ui label">41</div>
+                          <input
+                            id="input"
+                            type="text"
+                            name="stock"
+                            placeholder="Stock for size 41"
+                          />
+                          <input type="hidden" name="size" value="" />
+                        </div>
+                      </div>
+                      <div id="size-42" class="stock-input">
+                        <div class="ui labeled input">
+                          <div class="ui label">42</div>
+                          <input
+                            id="input"
+                            type="text"
+                            name="stock"
+                            placeholder="Stock for size 42"
+                          />
+                          <input type="hidden" name="size" value="" />
+                        </div>
+                      </div>
+                      <div id="size-43" class="stock-input">
+                        <div class="ui labeled input">
+                          <div class="ui label">43</div>
+                          <input
+                            id="input"
+                            type="text"
+                            name="stock"
+                            placeholder="Stock for size 43"
+                          />
+                          <input type="hidden" name="size" value="" />
+                        </div>
+                      </div>
+                      <div id="size-44" class="stock-input">
+                        <div class="ui labeled input">
+                          <div class="ui label">44</div>
+                          <input
+                            id="input"
+                            type="text"
+                            name="stock"
+                            placeholder="Stock for size 44"
+                          />
+                          <input type="hidden" name="size" value="" />
+                        </div>
+                      </div>
+                      <div id="size-45" class="stock-input">
+                        <div class="ui labeled input">
+                          <div class="ui label">45</div>
+                          <input
+                            id="input"
+                            type="text"
+                            name="stock"
+                            placeholder="Stock for size 45"
+                          />
+                          <input type="hidden" name="size" value="" />
+                        </div>
+                      </div>
+                      <div id="size-46" class="stock-input">
+                        <div class="ui labeled input">
+                          <div class="ui label">46</div>
+                          <input
+                            id="input"
+                            type="text"
+                            name="stock"
+                            placeholder="Stock for size 46"
+                          />
+                          <input type="hidden" name="size" value="" />
+                        </div>
+                      </div>
+                      <div id="size-47" class="stock-input">
+                        <div class="ui labeled input">
+                          <div class="ui label">47</div>
+                          <input
+                            id="input"
+                            type="text"
+                            name="stock"
+                            placeholder="Stock for size 47"
+                          />
+                          <input type="hidden" name="size" value="" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bottom column segment -->
+              <div class="row">
+                <div class="ui sixteen wide column">
+                  <div class="ui segment" id="image-segment">
+                    <div class="field">
+                      <label><b>Add Image</b></label>
+                      <div class="upload__box">
+                        <div class="upload__btn-box">
+                          <label class="upload__btn">
+                            <i class="plus circle icon"></i>
+                            <input
+                              type="file"
+                              multiple
+                              name="images"
+                              class="upload__inputfile"
+                            />
+                          </label>
+                        </div>
+                        <div class="ui message">
+                          <div class="upload__img-wrap"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Submit button -->
+              <div class="row">
+                <div class="ui sixteen wide column">
+                  <button class="ui animated button" type="submit">
+                    <div class="visible content">Add Product</div>
+                    <div class="hidden content">
+                      <i class="plus circle icon"></i>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

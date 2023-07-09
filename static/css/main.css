@@ -1,0 +1,46 @@
+.ui.inverted.segment {
+  background-color: #1a120b;
+  margin-top: -3px;
+  height: 70px;
+}
+
+.right.floated {
+  color: #1a120b;
+}
+
+#des:hover {
+  color: #1a120b;
+}
+
+.ui.animated.button {
+  height: 35px;
+  margin-top: 2px;
+}
+
+#tr {
+  color: #1a120b;
+}
+
+#tr:hover {
+  color: #edb560;
+}
+
+#ac {
+  color: #1a120b;
+}
+
+#ac:hover {
+  color: #edb560;
+}
+
+#logout {
+  color: #1a120b;
+}
+
+#logout:hover {
+  color: #edb560;
+}
+
+.item {
+  color: #1a120b;
+}

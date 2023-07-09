@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"
+      integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css"
+      integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="../static/css/global.css" />
+    <link rel="stylesheet" href="../static/css/transaction.css" />
+    <script src="../static/js/transaction.js"></script>
+    <title>Transcaction</title>
+  </head>
+  <body>
+    <div class="ui inverted segment">
+      <div class="ui inverted secondary pointing menu">
+        <div class="item">
+          <a href="/">
+            <i class="arrow left icon"></i>
+          </a>
+        </div>
+        <div class="right menu">
+          <div class="item">
+            <a href="/cart">
+              <i class="shop icon"></i>
+            </a>
+          </div>
+          <div class="item">
+            <div class="ui dropdown">
+              <div class="text"><h3>{{username}}</h3></div>
+              <div class="menu">
+                <div class="item">
+                  <a href="" id="ac"> Your Account </a>
+                </div>
+                <div class="item">
+                  <a href="/user-transaction" id="tr">Your Transcaction</a>
+                </div>
+                <div class="item">
+                  <a href="/logout" id="logout">Log Out</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui container">
+      <h2>Payment</h2>
+      <center>
+        <p id="p">
+          Please make payment on your bill, by transferring the amount of money
+          according to the nominal in the yellow letters, to the account number
+          below, so we can process your order immediately
+        </p>
+        <h3 id="bill">Bill</h3>
+        <h3 id="price"><b>IDR {{price}}</b></h3>
+        <div class="ui divider"></div>
+        <h3>Account Number</h3>
+        <h1 id="rek"><b>0453734428234</b></h1>
+      </center>
+      <h2 id="receipt">Upload payment receipt</h2>
+      <form
+        class="ui form"
+        action="/upload-receipt/{{order_id}}"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <div class="ui segment" id="image-segment">
+          <div class="field">
+            <label><b>Add Image</b></label>
+            <div class="upload__box">
+              <div class="upload__btn-box">
+                <label class="upload__btn">
+                  <i class="plus circle icon"></i>
+                  <input type="file" name="images" class="upload__inputfile" />
+                </label>
+              </div>
+              <div class="ui message">
+                <div class="upload__img-wrap"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="ui animated button" type="submit">
+          <div class="visible content">Confirm Order</div>
+          <div class="hidden content">
+            <i class="handshake icon"></i>
+          </div>
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

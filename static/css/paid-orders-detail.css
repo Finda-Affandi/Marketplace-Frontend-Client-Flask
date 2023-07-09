@@ -1,0 +1,34 @@
+#bottom-row {
+  margin-top: 40px;
+}
+
+#price {
+  float: right;
+}
+
+#table {
+  height: 92.5%;
+}
+
+.ui.image {
+  cursor: pointer;
+  height: 100%;
+}
+
+#zoom-image {
+  height: 800px;
+  width: auto;
+}
+
+#input {
+  margin-top: 15px;
+}
+
+.ui.selection.dropdown {
+  margin-top: 12px;
+}
+
+.ui.animated.button {
+  float: right;
+  width: 200px;
+}

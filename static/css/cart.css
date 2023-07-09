@@ -1,0 +1,90 @@
+.ui.inverted.segment {
+  background-color: #1a120b;
+  margin-top: -3px;
+  height: 70px;
+}
+
+.ui.segment {
+  position: relative;
+}
+
+#cbx {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cbx:checked {
+  border-color: #edb560;
+  background-color: #edb560;
+  color: #edb560;
+}
+
+.contents {
+  position: absolute;
+  top: 50%;
+  transform: translate(-0%, -50%);
+}
+
+#size {
+  margin-top: -2px;
+}
+
+#price {
+  float: right;
+  margin-top: 17%;
+}
+
+#delete-segment {
+  height: 100%;
+}
+
+#delete-segment:hover {
+  background-color: #edb560;
+  color: #1a120b;
+}
+
+.big.trash.alternate.icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#checkout {
+  background-color: #1a120b;
+  color: #ecf9ff;
+  width: 20%;
+  margin-top: 0px;
+  float: right;
+}
+
+#checkout:hover {
+  background-color: #edb560;
+  color: #1a120b;
+}
+
+#tr {
+  color: #1a120b;
+}
+
+#tr:hover {
+  color: #edb560;
+}
+
+#ac {
+  color: #1a120b;
+}
+
+#ac:hover {
+  color: #edb560;
+}
+
+#logout {
+  color: #1a120b;
+}
+
+#logout:hover {
+  color: #edb560;
+}

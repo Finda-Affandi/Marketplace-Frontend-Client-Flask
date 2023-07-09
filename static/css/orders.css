@@ -1,0 +1,43 @@
+.ui.raised.segment {
+  height: 100%;
+}
+
+#all-orders:hover {
+  background-color: #1a120b;
+  color: #edb560;
+}
+
+#paid-orders:hover {
+  background-color: #1a120b;
+  color: #edb560;
+}
+
+#on-shipment:hover {
+  background-color: #1a120b;
+  color: #edb560;
+}
+
+#all-orders {
+  background-color: white;
+}
+
+#paid-orders {
+  background-color: white;
+}
+
+#on-shipment {
+  background-color: white;
+}
+
+#active {
+  background-color: #1a120b;
+  color: #edb560;
+}
+
+.paid.orders {
+  margin-top: 4.5%;
+}
+
+.on.shipment {
+  margin-top: 9%;
+}

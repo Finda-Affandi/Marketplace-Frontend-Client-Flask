@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"
+      integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css"
+      integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../static/css/global.css" />
+    <link rel="stylesheet" href="../static/css/chat-detail.css" />
+    <title>Chat</title>
+  </head>
+  <body>
+    <div class="ui visible sidebar inverted vertical menu">
+      <a class="item">
+        <div class="ui small image">
+          <img src="../static/asset/Raccoon.png" alt="" />
+        </div>
+      </a>
+      <a href="/home" class="item">
+        <h4><i class="home icon"></i> Home</h4>
+      </a>
+      <a href="/products" class="item">
+        <h4><i class="archive icon"></i> Products</h4>
+      </a>
+      <a href="#" class="active item">
+        <h4><i class="wechat icon"></i> Chat</h4>
+      </a>
+      <a href="/orders" class="item">
+        <h4><i class="cart plus icon"></i> Orders</h4>
+      </a>
+      <a href="/statistic" class="item">
+        <h4><i class="chart bar icon"></i> Statistic</h4>
+      </a>
+    </div>
+    <div class="container">
+      <div class="ui two column grid">
+        <div class="row">
+          <div class="column">
+            <h2>Chat</h2>
+          </div>
+        </div>
+        <div class="row">
+          <!-- left column -->
+          <div class="ui five wide column">
+            <div class="ui segment" id="left-segment">
+              {% if chatList|length > 0 %} {% for chat in chatList%} {% if chat
+              == name%}
+              <a href="#">
+                <div class="row" id="chat-row">
+                  <div class="column">
+                    <img
+                      id="profile-pict"
+                      src="../static/asset/user1.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="column">
+                    <div class="chat-pick">
+                      <p id="name"><b>{{ chat }}</b><br />haha</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              {% else %}
+              <a href="/chat/{{chat}}">
+                <div class="row" id="chat-row">
+                  <div class="column">
+                    <img
+                      id="profile-pict"
+                      src="../static/asset/user1.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="column">
+                    <div class="chat-title">
+                      <p id="name"><b>{{ chat }}</b><br />haha</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              {% endif %} {% endfor %} {% else %}
+              <div class="ui small image">
+                <img
+                  id="empty-image"
+                  src="../static/asset/Empty Chat.svg"
+                  alt=""
+                />
+              </div>
+              <span class="empty-notif"
+                ><b>Sorry, there is no chat to show!</b></span
+              >
+              {% endif %}
+            </div>
+          </div>
+
+          <!-- Right column -->
+          <div class="ui eleven wide column">
+            <div class="ui segment" id="right-segment">
+              <div class="segment-header">
+                <h3 id="header-name">{{name}}</h3>
+              </div>
+              <div class="chat-content"></div>
+              <div class="chat-button">
+                <form action="" class="ui form">
+                  <div class="two fields">
+                    <div class="field" id="left-field">
+                      <a href=""><i class="large smile icon"></i></a>
+                    </div>
+                    <div class="field" id="center-field">
+                      <input
+                        class="input-chat"
+                        type="text"
+                        name="chat"
+                        id="input"
+                        placeholder="Type a message"
+                      />
+                    </div>
+                    <div class="field" id="right-field">
+                      <button
+                        class="ui small animated button"
+                        type="submit"
+                        tabindex="0"
+                      >
+                        <div class="visible content">
+                          <i class="paper plane icon"></i>
+                        </div>
+                        <div class="hidden content">
+                          <i class="paper plane outline icon"></i>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

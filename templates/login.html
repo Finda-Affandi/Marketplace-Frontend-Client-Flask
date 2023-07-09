@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"
+      integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css"
+      integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js"
+      integrity="sha512-v3ygConQmvH0QehvQa6gSvTE2VdBZ6wkLOlmK7Mcy2mZ0ZF9saNbbk19QeaoTHdWIEiTlWmrwAL4hS8ElnGFbA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="../static/css/global.css" />
+    <link rel="stylesheet" href="../static/css/login.css" />
+    <title>Login Page</title>
+  </head>
+  <body>
+    <div class="ui stackable two column grid">
+      <div class="column" id="left-column">
+        <div class="row" id="logo-row">
+          <div class="column">
+            <div class="ui medium image">
+              <img src="../static/asset/Raccoon.png" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column"></div>
+        </div>
+        <div class="row" id="image-row">
+          <div class="column">
+            <center>
+              <div class="ui large image">
+                <img src="../static/asset/Signin.svg" alt="" />
+              </div>
+            </center>
+          </div>
+        </div>
+      </div>
+      <div class="column" id="right-column">
+        <div class="row" id="hello">
+          <div class="column">
+            <h1>Hello Buddy!</h1>
+            <p id="sign-in">Sign in to your administrator account</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column">
+            <form class="ui form" method="POST" action="/login">
+              <div class="field">
+                <input
+                  id="input"
+                  type="text"
+                  name="username"
+                  placeholder="Username"
+                />
+              </div>
+              <div class="field">
+                <input
+                  id="input"
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                />
+              </div>
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" tabindex="0" />
+                  <label>Remember me</label>
+                </div>
+              </div>
+              <button class="ui animated button" type="submit">
+                <div class="visible content">Login</div>
+                <div class="hidden content">
+                  <i class="sign in alternate icon"></i>
+                </div>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

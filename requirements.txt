@@ -1,0 +1,8 @@
+Flask
+requests
+gunicorn
+Pillow
+uuid
+DateTime
+regex
+cryptography

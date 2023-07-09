@@ -1,0 +1,174 @@
+#product-breadcumb {
+  float: left;
+}
+
+#currency:focus {
+  border-color: #edb560;
+}
+
+#breadcumb {
+  animation: fadeInLeft;
+  animation-duration: 2s;
+}
+
+.ui.five.column.grid {
+  margin-top: -7px;
+}
+
+.ui.stackable.two.column.grid {
+  margin-top: -30px;
+}
+
+.button-wrapper {
+  position: relative;
+  width: 150px;
+  margin: 20% auto;
+  height: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.button-wrapper span.label {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  width: 100%;
+  background: #1a120b;
+  color: #fff;
+  padding: 10px 0;
+  font-size: 12px;
+  border-radius: 5px;
+}
+
+.ui.segment {
+  width: 100%;
+  height: 100%;
+  animation: fadeInUp;
+  animation-duration: 2s;
+}
+
+#upload {
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 50px;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.ui.animated.button {
+  float: right;
+  margin-top: 15px;
+  animation: fadeInRight;
+  animation-duration: 2s;
+}
+
+#right-segment {
+  height: 100%;
+}
+
+.stock-input {
+  margin-top: 5px;
+  margin-left: 7px;
+  margin-right: 7px;
+  display: none;
+}
+
+.stock-list {
+  margin-top: 140px;
+}
+
+.ui.label {
+  background-color: #1a120b;
+  color: #ecf9ff;
+}
+
+.ui.stackable.two.column.grid {
+  margin-top: 15px;
+}
+
+p {
+  margin: 0;
+}
+
+.upload__box {
+  padding: 0px;
+  margin-top: 4px;
+}
+.upload__inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.upload__btn {
+  display: inline-block;
+  margin-top: 230px;
+  font-weight: 600;
+  color: #ecf9ff;
+  text-align: center;
+  min-width: 116px;
+  padding: 7.8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background-color: #1a120b;
+  border-radius: 4.5px;
+  position: relative;
+}
+.upload__btn:hover {
+  background-color: #edb560;
+  color: #1a120b;
+  transition: all 0.3s ease;
+}
+.upload__btn-box {
+  margin-bottom: 10px;
+}
+.upload__img-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -17px;
+}
+.upload__img-box {
+  width: 200px;
+  padding: 0 10px;
+  margin-bottom: 12px;
+}
+.upload__img-close {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-align: center;
+  line-height: 24px;
+  z-index: 1;
+  cursor: pointer;
+}
+.upload__img-close:after {
+  content: "\2716";
+  font-size: 14px;
+  color: white;
+}
+.img-bg {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  padding-bottom: 100%;
+}
+
+.ui.message {
+  height: 207px;
+  margin-top: -270px;
+}
+
+#image-segment {
+  height: 320px;
+}

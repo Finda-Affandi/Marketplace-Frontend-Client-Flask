@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"
+      integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css"
+      integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="../static/css/global.css" />
+    <link rel="stylesheet" href="../static/css/product-detail.css" />
+    <link rel="stylesheet" href="../static/css/product-edit.css" />
+    <script src="../static/js/products-detail.js"></script>
+    <title>Edit Product</title>
+  </head>
+  <body>
+    <div class="ui visible sidebar inverted vertical menu">
+      <a class="item">
+        <div class="ui small image">
+          <img src="../static/asset/Raccoon.png" alt="" />
+        </div>
+      </a>
+      <a href="/home" class="item">
+        <h4><i class="home icon"></i> Home</h4>
+      </a>
+      <a href="/products" class="active item">
+        <h4><i class="archive icon"></i> Products</h4>
+      </a>
+      <a href="/orders" class="item">
+        <h4><i class="cart plus icon"></i> Orders</h4>
+      </a>
+    </div>
+    <div class="container">
+      <!-- Breadcumb -->
+      <div class="row">
+        <div class="sixteen wide column">
+          <h2 id="breadcumb">
+            <a href="/products">Products</a>
+            <i class="angle right icon"></i>
+            <a href="">Product Detail</a>
+            <i class="angle right icon"></i>
+            Edit Detail
+          </h2>
+        </div>
+      </div>
+
+      <!-- Add products form -->
+      <div class="row">
+        <div class="column">
+          <form
+            class="ui form"
+            method="POST"
+            action="/update-product/{{current_product['products_id']}}"
+            enctype="multipart/form-data"
+          >
+            <div class="ui stackable two column grid">
+              <!-- Left column segment -->
+              <div class="column">
+                <div class="ui big image" id="left-image">
+                  <img id="image" src="../static/asset/Update.svg" alt="" />
+                </div>
+              </div>
+
+              <!-- Right column segment -->
+              <div class="column">
+                <div class="ui segment">
+                  <div class="field">
+                    <label>Product Name</label>
+                    <input
+                      id="input"
+                      type="text"
+                      name="name"
+                      value="{{current_product['name']}}"
+                      placeholder="Product Name"
+                    />
+                  </div>
+                  <div class="field">
+                    <label>Brand</label>
+                    <input
+                      id="input"
+                      type="text"
+                      name="brand"
+                      value="{{current_product['brand']}}"
+                      placeholder="Brand"
+                    />
+                  </div>
+                  <div class="field">
+                    <label>Description</label>
+                    <textarea
+                      id="input"
+                      name="description"
+                      placeholder="Description"
+                    >
+{{current_product['description']}}</textarea
+                    >
+                  </div>
+                  <div class="field">
+                    <label>Price</label>
+                    <input
+                      type="text"
+                      name="price"
+                      value="IDR {{current_product['price']}}"
+                      id="currency"
+                      placeholder="IDR"
+                    />
+                  </div>
+                  <div class="field">
+                    <label for="">Status</label>
+                    <div class="ui selection dropdown">
+                      <input
+                        type="hidden"
+                        name="status"
+                        value="{{current_product['status']}}"
+                      />
+                      <i class="dropdown icon"></i>
+                      <div class="default text"></div>
+                      <div class="menu">
+                        <div class="item" data-value="Publish">Publish</div>
+                        <div class="item" data-value="Draft">Draft</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right column segment -->
+
+              <!-- Bottom column segment -->
+              <!-- <div class="row">
+                <div class="ui sixteen wide column">
+                  <div class="ui segment" id="image-segment">
+                    <div class="field">
+                      <label><b>Add Image</b></label>
+                      <div class="upload__box">
+                        <div class="upload__btn-box">
+                          <label class="upload__btn">
+                            <i class="plus circle icon"></i>
+                            <input
+                              type="file"
+                              multiple
+                              name="images"
+                              class="upload__inputfile"
+                            />
+                          </label>
+                        </div>
+                        <div class="ui message">
+                          <div class="upload__img-wrap"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- Submit button -->
+              <div class="row">
+                <div class="ui sixteen wide column">
+                  <button class="ui animated button" type="submit">
+                    <div class="visible content">Update Products</div>
+                    <div class="hidden content">
+                      <i class="edit icon"></i>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

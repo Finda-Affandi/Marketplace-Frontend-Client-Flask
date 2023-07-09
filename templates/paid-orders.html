@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"
+      integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css"
+      integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../static/css/global.css" />
+    <link rel="stylesheet" href="../static/css/orders.css" />
+    <script src="../static/js/global.js"></script>
+    <title>Orders</title>
+  </head>
+  <body>
+    <div class="ui visible sidebar inverted vertical menu">
+      <a class="item">
+        <div class="ui small image">
+          <img src="../static/asset/Raccoon.png" alt="" />
+        </div>
+      </a>
+      <a href="/home" class="item">
+        <h4><i class="home icon"></i> Home</h4>
+      </a>
+      <a href="/products" class="item">
+        <h4><i class="archive icon"></i> Products</h4>
+      </a>
+      <a href="/orders" class="active item">
+        <h4><i class="cart plus icon"></i> Orders</h4>
+      </a>
+    </div>
+    <div class="container">
+      <div class="ui stackable three column grid">
+        <div class="row">
+          <div class="column">
+            <h2>Orders<i class="angle right icon"></i> Paid Orders</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column">
+            <a href="/orders">
+              <div class="ui raised segment" id="all-orders">
+                <div class="all orders">
+                  <center>
+                    <h1>
+                      All Orders&nbsp;&nbsp;&nbsp;
+                      <div class="ui small image">
+                        <img src="../static/asset/All Order.svg" alt="" />
+                      </div>
+                    </h1>
+                  </center>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="column">
+            <a href="/paid-orders">
+              <div class="ui raised segment" id="active">
+                <div class="paid orders">
+                  <center>
+                    <h1>
+                      Paid Orders&nbsp;&nbsp;&nbsp;
+                      <div class="ui small image">
+                        <img src="../static/asset/Paid Order.svg" alt="" />
+                      </div>
+                    </h1>
+                  </center>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="column">
+            <a href="/order-shipment">
+              <div class="ui raised segment" id="on-shipment">
+                <div class="on shipment">
+                  <center>
+                    <h1>
+                      On Shipment&nbsp;&nbsp;&nbsp;
+                      <div class="ui small image">
+                        <img src="../static/asset/Shipment.svg" alt="" />
+                      </div>
+                    </h1>
+                  </center>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="ui sixteen wide column">
+            <table class="ui selectable unstackable table">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Orderer Name</th>
+                  <th>Order Status</th>
+                  <th>Order Time</th>
+                  <th>Subtotal</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for ord in orders %}
+                <tr
+                  onclick="handleRowClick('/paid-orders-detail/{{ord['order_id']}}')"
+                >
+                  <td>{{ord['order_id']}}</td>
+                  <td><b>{{ord['username']}}</b></td>
+                  <td>{{ord['order_status']}}</td>
+                  <td>{{ord['order_datetime']}}</td>
+                  <td>IDR {{ord['subtotal']}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

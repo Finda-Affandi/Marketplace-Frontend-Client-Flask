@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="/user-cart" method="POST">
+      <input type="submit" value="Submit" />
+    </form>
+
+    <form action="/checkout" method="POST">
+      <input
+        type="hidden"
+        name="carts_id"
+        value="f04d83a6-64af-49ba-92cc-038097d30c39"
+      />
+      <input
+        type="hidden"
+        name="carts_id"
+        value="fb1dec5c-ce1b-490f-bd30-71137271c1cc"
+      />
+      <input type="submit" value="Checkout" />
+    </form>
+  </body>
+</html>

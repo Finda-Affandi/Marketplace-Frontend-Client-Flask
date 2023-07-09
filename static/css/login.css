@@ -1,0 +1,48 @@
+#left-column {
+  background-color: #1a120b;
+  height: 120vh;
+}
+
+#logo-row {
+  margin-top: 3%;
+  margin-left: 2%;
+  animation: fadeInLeft;
+  animation-duration: 2s;
+}
+
+#image-row {
+  margin-top: 20%;
+  animation: fadeInUp;
+  animation-duration: 2s;
+}
+
+#hello {
+  margin-top: 30%;
+  margin-left: 20%;
+  margin-right: 20%;
+  color: #edb560;
+  animation: fadeInRight;
+  animation-duration: 2s;
+}
+
+#sign-in {
+  margin-top: -2%;
+  color: #1a120b;
+}
+
+.ui.form {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 3%;
+  animation: fadeInUp;
+  animation-duration: 2s;
+}
+
+#input:focus {
+  border-color: #edb560;
+}
+
+.ui.animated.button {
+  width: 100%;
+  margin-top: 2%;
+}

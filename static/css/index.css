@@ -1,0 +1,4 @@
+.ui.visible.sidebar.inverted.vertical.menu {
+  animation: slideInLeft;
+  animation-duration: 2s;
+}

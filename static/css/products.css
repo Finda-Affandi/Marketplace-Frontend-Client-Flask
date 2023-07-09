@@ -1,0 +1,30 @@
+#segment-add-product {
+  height: 100%;
+  vertical-align: baseline;
+}
+
+#segment-add-product:hover {
+  background-color: #1a120b;
+}
+
+#segment-category {
+  height: 100%;
+}
+
+#segment-category:hover {
+  background-color: #1a120b;
+}
+
+#breadcumb {
+  animation: fadeInLeft;
+  animation-duration: 2s;
+}
+
+.category-content {
+  margin-top: 1.5%;
+}
+
+.ui.segment {
+  animation: fadeInUp;
+  animation-duration: 2s;
+}

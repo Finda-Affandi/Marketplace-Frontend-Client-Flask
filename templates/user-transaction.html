@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"
+      integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css"
+      integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="../static/css/global.css" />
+    <link rel="stylesheet" href="../static/css/user-transaction.css" />
+    <title>Transcaction</title>
+  </head>
+  <body>
+    <div class="ui inverted segment">
+      <div class="ui inverted secondary pointing menu">
+        <div class="item">
+          <a href="/">
+            <i class="arrow left icon"></i>
+          </a>
+        </div>
+        <div class="right menu">
+          <div class="item">
+            <a href="/cart">
+              <i class="shop icon"></i>
+            </a>
+          </div>
+          <div class="item">
+            <div class="ui dropdown">
+              <div class="text"><h3>{{username}}</h3></div>
+              <div class="menu">
+                <a href="">
+                  <div class="item">
+                    <p id="ac">Your Account</p>
+                  </div>
+                </a>
+                <a href="">
+                  <div class="item">
+                    <p id="tr">Your Transcaction</p>
+                  </div>
+                </a>
+                <a href="/logout">
+                  <div class="item"><p id="logout">Log Out</p></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui container">
+      <h1>Transaction</h1>
+      <h3 id="segment-title">
+        Order awaiting payment <i class="clock outline icon"></i>
+        <div class="ui divider"></div>
+      </h3>
+      {% for ord in order %}
+      <!--  -->
+      {% if ord['status'] == 'Unpaid' %}
+      <!--  -->
+      <a href="/user-transaction-detail/{{ord['order_id']}}">
+        <div class="ui segment" id="products-segment">
+          <p><b>{{ ord['order_id'] }}</b></p>
+          {% for prod in ord['product'] %}
+          <p id="nm">{{prod['name']}}</p>
+          <p id="pr">price</p>
+          <p id="prc"><b>IDR {{ prod['price'] }}</b></p>
+          {% endfor %}
+          <b id="sb">Subtotal IDR {{ord['subtotal']}}</b>
+        </div>
+      </a>
+      <!--  -->
+      {% endif %}
+
+      <!--  -->
+      {% endfor %}
+
+      <h3 id="segment-title">
+        Order on process <i class="hourglass half icon"></i>
+        <div class="ui divider"></div>
+      </h3>
+      {% for ord in order %}
+      <!--  -->
+      {% if ord['status'] != 'Unpaid' and ord['status'] != 'Done' %}
+      <!--  -->
+      <a href="/user-transaction-detail/{{ord['order_id']}}">
+        <div class="ui segment" id="products-segment">
+          <p><b>{{ ord['order_id'] }}</b></p>
+          {% for prod in ord['product'] %}
+          <p id="nm">{{prod['name']}}</p>
+          <p id="pr">price</p>
+          <p id="prc"><b>IDR {{ prod['price'] }}</b></p>
+          {% endfor %}
+          <b id="sb">Subtotal IDR {{ord['subtotal']}}</b>
+        </div>
+      </a>
+      <!--  -->
+      {% endif %}
+
+      <!--  -->
+      {% endfor %}
+
+      <h3 id="segment-title">
+        Order completed <i class="thumbs up outline icon"></i>
+        <div class="ui divider"></div>
+      </h3>
+      {% for ord in order %}
+      <!--  -->
+      {% if ord['status'] == 'Done' %}
+      <!--  -->
+      <a href="/user-transaction-detail/{{ord['order_id']}}">
+        <div class="ui segment">
+          <p><b>{{ ord['order_id'] }}</b></p>
+          {% for prod in ord['product'] %}
+          <p id="nm">{{prod['name']}}</p>
+          <p id="pr">price</p>
+          <p id="prc"><b>IDR {{ prod['price'] }}</b></p>
+          {% endfor %}
+          <b id="sb">Subtotal IDR {{ord['subtotal']}}</b>
+        </div>
+      </a>
+      <!--  -->
+      {% endif %}
+
+      <!--  -->
+      {% endfor %}
+      <!-- {% if unpaid|length > 0 %}
+
+      <h3 id="segment-title">
+        Orders awaiting payment <i class="clock outline icon"></i>
+      </h3>
+      <div class="ui divider"></div>
+      {% for u in unpaid %}
+
+      <div class="ui segment">
+        <h3>{{u['order_id']}}</h3>
+        {% for prod in u['product'] %}
+
+        <p>{{prod['name']}}</p>
+
+        {% endfor %}
+        <h4>Subtotal : {{u['subtotal']}}</h4>
+      </div>
+
+      {% endfor %} 
+      
+      {% endif %} 
+      
+
+      {% if process|length > 0 %}
+
+      <h3 id="segment-title">
+        Orders on process <i class="hourglass half icon"></i>
+      </h3>
+      <div class="ui divider"></div>
+      {% for p in process %}
+
+      <div class="ui segment">
+        <h3>{{p['order_id']}}</h3>
+      </div>
+
+      {% endfor %} 
+      
+      {% endif %} 
+      
+      
+      {% if done|length > 0 %}
+
+      <h3 id="segment-title">
+        Orders completed <i class="thumbs up outline icon"></i>
+      </h3>
+      <div class="ui divider"></div>
+
+      {% for d in done %}      
+
+      <div class="ui segment">
+        <h3>{{d['order_id']}}
+      </div>
+
+      {% endfor %} 
+      
+      {% endif %} -->
+    </div>
+  </body>
+</html>
+<script>
+  $(function () {
+    $(".ui.dropdown").dropdown();
+  });
+</script>
